@@ -1,0 +1,11 @@
+VERSION = 1,
+
+option GauchoBetterDismantle.BaseSkillChance = {
+	type = double, min = 0.0, max = 1.0, default = 0.15,
+	page = GauchoBetterDismantleConfig, translation = GauchoBetterDismantle_BaseSkillChance,
+}
+
+option GauchoBetterDismantle.MaxSkillChance = {
+	type = double, min = 0.0, max = 1.0, default = 0.75,
+	page = GauchoBetterDismantleConfig, translation = GauchoBetterDismantle_MaxSkillChance,
+}

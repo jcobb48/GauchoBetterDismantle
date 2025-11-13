@@ -1,0 +1,6 @@
+version=1
+id=
+title=Gaucho Better Dismantle
+description=Fixes dismanteling to work with any player constructed object
+tags=Build 41;Misc;Multiplayer
+visibility=public

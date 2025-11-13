@@ -1,0 +1,5 @@
+Sandbox_EN = {
+    Sandbox_GauchoBetterDismantleConfig = "Gaucho Better Dismantle",
+    Sandbox_GauchoBetterDismantle_BaseSkillChance = "Min skill scrap chance",
+    Sandbox_GauchoBetterDismantle_MaxSkillChance = "Max skill scrap chance",
+}

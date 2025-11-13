@@ -1,0 +1,5 @@
+Sandbox_ES = {
+    Sandbox_GauchoBetterDismantleConfig = "Gaucho Better Dismantle",
+    Sandbox_GauchoBetterDismantle_BaseSkillChance = "Chance min de residuos",
+    Sandbox_GauchoBetterDismantle_MaxSkillChance = "Chance max de residuos",
+}

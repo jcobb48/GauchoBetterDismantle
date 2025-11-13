@@ -1,0 +1,6 @@
+ContextMenu_ES = {
+    ContextMenu_GauchoBetterDismantle_Dismantle = "Desmantelar",
+    ContextMenu_GauchoBetterDismantle_ScrapChance = "Prob. de residuos",
+    ContextMenu_GauchoBetterDismantle_Materials = "Materiales",
+    ContextMenu_GauchoBetterDismantle_MissingRequired = "Faltan herramientas: %1",
+}
