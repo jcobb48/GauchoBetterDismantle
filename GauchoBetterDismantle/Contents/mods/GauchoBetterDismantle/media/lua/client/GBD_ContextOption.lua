@@ -26,13 +26,14 @@ local function gatherThumpables(worldobjects)
 end
 
 --- Strips prefix from scrap material keys
---- @param fullType string
+--- @param fullType string | nil
 local function formatScrapMaterialFullType(fullType)
-    local dotIndex = string.find(fullType, "%.")
-    if dotIndex then
-        local formatted = string.sub(fullType, dotIndex + 1)
-        return formatted
+    local itemName = nil
+    local tmpItem = InventoryItemFactory.CreateItem(fullType)
+    if tmpItem then
+        itemName = tmpItem:getDisplayName() or itemName
     end
+    return itemName
 end
 
 local function isBlowTorch(it)
@@ -102,8 +103,8 @@ end
 -- Perk -> required tools mapping
 local REQUIRED_BY_PERK = {
     [Perks.Woodwork] = {
-        { tag = "Saw", fullType = nil, label = "saw" },
-        { tag = "Hammer", fullType = nil, label = "hammer" }
+        { tag = "Saw", fullType = "Base.Saw", label = "saw" },
+        { tag = "Hammer", fullType = "Base.Hammer", label = "hammer" }
     },
     [Perks.MetalWelding] = {
         { tag = "BlowTorch", fullType = "Base.BlowTorch", label = "blowtorch" },
@@ -129,7 +130,13 @@ local function computeMissingToolsFor(thump, player)
         for _, spec in ipairs(req) do
             local foundItem = getFirstItemsRecursiveByTagOrType(player, spec.tag, spec.fullType, isValidItemForDismanteling)
             if not foundItem then
-                local label = spec.label
+                local label = spec.label or "tool"
+                if spec.fullType then
+                    local tmpItem = InventoryItemFactory.CreateItem(spec.fullType)
+                    if tmpItem then
+                        label = tmpItem:getDisplayName() or label
+                    end
+                end
                 table.insert(missingTools, label)
             end
         end
